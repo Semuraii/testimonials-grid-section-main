@@ -1,0 +1,97 @@
+:root {
+  --purple: hsl(263, 55%, 52%);
+  --gray-blue: hsl(217, 19%, 35%);
+  --black-blue: hsl(219, 29%, 14%);
+  --white: hsl(0, 0%, 100%);
+  --light-gray: hsl(0, 0%, 81%);
+  --light-gray-blue: hsl(210, 46%, 95%);
+  --font-main: 'Barlow Semi Condensed', sans-serif;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--light-gray-blue);
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+}
+
+.testimonial {
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+  color: var(--gray-blue);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.testimonial.purple { background-color: var(--purple); color: var(--white); }
+.testimonial.dark { background-color: var(--gray-blue); color: var(--white); }
+.testimonial.black { background-color: var(--black-blue); color: var(--white); }
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.user-info {
+  line-height: 1.2;
+}
+
+.user-info .name {
+  font-weight: 600;
+}
+
+.user-info .title {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.testimonial .quote {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.testimonial .description {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+@media (min-width: 900px) {
+  .testimonials {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "purple purple gray white"
+      "black dark dark white";
+  }
+
+  .testimonial:nth-child(1) { grid-area: purple; }
+  .testimonial:nth-child(2) { grid-area: gray; }
+  .testimonial:nth-child(3) { grid-area: white; }
+  .testimonial:nth-child(4) { grid-area: black; }
+  .testimonial:nth-child(5) { grid-area: dark; }
+}
+.attribution {
+  font-size: 0.75rem;
+  text-align: center;
+  margin-top: 2rem;
+}
